@@ -30,16 +30,16 @@ self.addEventListener('install', (event) => {
 self.addEventListener('fetch', (event) => {
     // Exclude requests for hot-update.json
     if (event.request.url.includes('hot-update.json')) {
-        return; // Do nothing
+        return;
     }
 
     event.respondWith(
         caches.match(event.request).then((response) => {
-            // If the cached response is found then return it
+            // If the cached response is found then return it otherwise no
             if (response) {
                 return response;
             }
-            // If not found in cache, fetch from network
+            // If not found in cache, fetch from the files in network
             return fetch(event.request);
         })
     );

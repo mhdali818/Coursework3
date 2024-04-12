@@ -80,6 +80,5 @@
   </script>
   
   <style>
-  /* Cart styles */
   </style>
   
